@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+
+
+body{
+    background-color: #E0F1E7;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+body>div{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+body>div>form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.single-group{
+    display:flex ;
+    flex-direction: column;
+}
+
+.double-group{
+    display: flex;
+    gap: 1rem;
+}
+
+.required::after{
+    content: "*";
+    color: #0B7D6A;
+}
+
+.enquiry{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input,button{
+   
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.input{
+     border: 0.5px solid grey;
+}
+
+button{
+    background-color: #0B7D6A;
+    border: none;
+    color: white;
+}
+
+.error {
+  color: #d64545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+input:invalid + .error,
+textarea:invalid + .error {
+  display: block;
+}
+
+
+@media (max-width: 600px) {
+  .double-group {
+    flex-direction: column;
+  }
+}
+
+
+
+
