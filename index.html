@@ -11,72 +11,75 @@
   <title>Frontend Mentor | Contact form</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <div>
     <h2>Contact Us</h2>
-
     <form action="" novalidate>
       <div class="double-group">
-      <div class="single-group">
-        <label for="first_name" class="required">First Name</label>
-        <input class="input" id="first_name" name="first_name" type="text" required />
-        <small class="error"></small>
-      </div>
+        <div class="single-group">
+          <label for="first_name" class="required">First Name</label>
+          <input class="input" id="first_name" name="first_name" type="text" required />
+          <small class="error">This field is required</small>
+        </div>
 
-      <div class="single-group">
-        <label for="last_name" class="required">Last Name</label>
-        <input class="input" id="last_name" name="last_name" type="text" required />
-        <small class="error"></small>
-      </div>
+        <div class="single-group">
+          <label for="last_name" class="required">Last Name</label>
+          <input class="input" id="last_name" name="last_name" type="text" required />
+          <small class="error">This field is required</small>
+        </div>
       </div>
 
       <div class="single-group">
         <label for="email_address" class="required">Email Address</label>
         <input class="input" id="email_address" name="email_address" type="email" required />
-         <small class="error"></small>
+        <small class="error">Please enter a valid email address</small>
       </div>
 
-      <div id="single-group">
+      <div class="single-group">
         <label class="required">Query Type</label>
         <div class="enquiry">
-        <label class="input" for="general_enquiry">
-          <input type="radio" id="general_enquiry" name="query" value="general_query" required />
-          General Enquiry
-        </label>
+          <label class="input label-flex" for="general_enquiry">
+            <input type="radio" id="general_enquiry" name="query" value="general_query" required />
+            General Enquiry
+          </label>
 
 
-        <label class="input" for="support_request">
-          <input type="radio" id="support_request" name="query" value="support_request" />
-          Support Request
-        </label>
+          <label class="input label-flex" for="support_request">
+            <input type="radio" id="support_request" name="query" value="support_request" />
+            Support Request
+          </label>
         </div>
-         <small class="error"></small>
+        <small class="error">Please select a query type</small>
       </div>
 
       <div class="single-group">
         <label for="message" class="required">Message</label>
-        <textarea id="message" name="message" required></textarea>
-         <small class="error"></small>
+        <textarea id="message" name="message" required class="input"></textarea>
+        <small class="error">This field is required</small>
       </div>
 
-      <div>
-        <label for="consent" class="required">
+      <div class="single-group">
+        <label class="label-flex" for="consent" class="required">
           <input type="checkbox" id="consent" name="consent" required />
           I consent to being contacted by the team
         </label>
-         <small class="error"></small>
+        <small class="error">To submit this form, please consent to being contacted</small>
       </div>
+
 
       <button type="submit">Submit</button>
     </form>
+
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by <a href="#">Prince Vishwakarma</a>.
     </div>
   </div>
+
 
 </body>
 
