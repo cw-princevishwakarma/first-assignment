@@ -8,9 +8,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Contact form</title>
+  <title>Contact form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -42,14 +41,12 @@
       <div class="single-group">
         <label class="required">Query Type</label>
         <div class="enquiry">
-          <label class="input label-flex" for="general_enquiry">
-            <input type="radio" id="general_enquiry" name="query" value="general_query" required />
+          <label class="label-flex radio-option " for="general_enquiry">
+            <input type="radio" name="query" value="general_query" required id="general_enquiry"/>
             General Enquiry
           </label>
-
-
-          <label class="input label-flex" for="support_request">
-            <input type="radio" id="support_request" name="query" value="support_request" />
+          <label class="label-flex radio-option" for="support_request">
+            <input type="radio" name="query" value="support_request" id="support_request" />
             Support Request
           </label>
         </div>
@@ -63,13 +60,12 @@
       </div>
 
       <div class="single-group">
-        <label class="label-flex" for="consent" class="required">
+        <label class="label-flex required" for="consent">
           <input type="checkbox" id="consent" name="consent" required />
           I consent to being contacted by the team
         </label>
         <small class="error">To submit this form, please consent to being contacted</small>
       </div>
-
 
       <button type="submit">Submit</button>
     </form>

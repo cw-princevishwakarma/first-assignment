@@ -1,28 +1,27 @@
 :root {
-  --accent: #0B7D6A;
-  --error: rgb(255, 67, 67);
+    --accent: #0B7D6A;
+    --error: rgb(255, 67, 67);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-size: 14px
-}
-
-body{
+body {
+    min-height: 100vh;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #E0F1E7;
     display: flex;
-    align-items:center ;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
 }
-body>div{
+
+body>div {
     background-color: white;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -30,118 +29,127 @@ body>div{
     gap: 1rem;
     flex-direction: column;
 }
-body>div>form{
+
+body>div>form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     flex-wrap: wrap;
     gap: 1rem;
 }
+
 .single-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 
-.double-group{
+.double-group {
     display: flex;
     gap: 1rem;
 }
 
-.double-group> .single-group{
-    flex:1
+.double-group>.single-group {
+    flex: 1
 }
 
-.required::after{
-    content: "*";
+.required::after {
+    content: " *";
     color: #0B7D6A;
     font-size: 10px;
 }
 
-.enquiry{
+.enquiry {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
-.enquiry > label {
-  flex: 1;
+.enquiry>label {
+    flex: 1;
 }
 
-.input,button{
+.input,
+button {
     padding: 0.75rem;
     border-radius: 0.25rem;
 }
-.pointer{
+
+.pointer {
     cursor: pointer;
 }
-.input{
-     border: 0.5px solid grey;
+
+.input {
+    border: 0.5px solid grey;
+}
+
+.radio-option {
+    padding: 0.75rem;
+    border: 0.5px solid grey;
+    border-radius: 0.25rem;
+    white-space: nowrap;
 }
 
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-   border-radius: 0.25rem;
+    outline: none;
+    border-color: var(--accent);
+    border-radius: 0.25rem;
 }
 
 
-button{
+button {
     background-color: #0B7D6A;
     border: none;
     color: white;
 }
 
-textarea{
+textarea {
     min-height: 80px;
     padding: 1rem;
     resize: none;
 }
 
 
-
 .error {
-  display: none;
-  color: var(--error);
-  font-size: 0.8rem;
+    display: none;
+    color: var(--error);
+    font-size: 0.8rem;
 }
 
 form.submitted .single-group:has(:invalid) .error {
-  display: block;
+    display: block;
 }
-
 
 form.submitted :invalid {
-  border-color: var(--error);
+    border-color: var(--error);
 }
 
-.attribution{
+.attribution {
     font-size: 10px;
 }
-.label-flex{
+
+.label-flex {
     display: flex;
     align-items: center;
-    gap:4px
+    gap: 4px
 }
 
 input[type="checkbox"] {
-  accent-color: #0B7D6A;
+    accent-color: #0B7D6A;
 }
 
 input[type="radio"] {
-  accent-color: var(--accent);
+    accent-color: var(--accent);
 }
 
-
+.pointer {
+    cursor: pointer;
+}
 
 @media (max-width: 600px) {
-  .double-group {
-    flex-direction: column;
-  }
+    .double-group {
+        flex-direction: column;
+    }
 }
-
-
-
-
