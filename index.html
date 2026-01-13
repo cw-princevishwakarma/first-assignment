@@ -11,60 +11,61 @@
   <title>Contact form</title>
 
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script src="script.js" type="module" ></script>
+  <script src="utils.js" type="module" ></script>
 </head>
 
 <body>
-  <div>
+  <div class="form-box">
     <h2>Contact Us</h2>
     <form action="" novalidate>
-      <div class="double-group">
-        <div class="single-group">
-          <label for="first_name" class="required">First Name</label>
-          <input class="input" id="first_name" name="first_name" type="text" required />
-          <small class="error">This field is required</small>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first_name" class="form_required">First Name</label>
+          <input class="form-input" id="first_name" name="first_name" type="text" required />
+          <small class="error"></small>
         </div>
 
-        <div class="single-group">
-          <label for="last_name" class="required">Last Name</label>
-          <input class="input" id="last_name" name="last_name" type="text" required />
-          <small class="error">This field is required</small>
+        <div class="form-group">
+          <label for="last_name" class="form_required">Last Name</label>
+          <input class="form-input" id="last_name" name="last_name" type="text" required />
+          <small class="error"></small>
         </div>
       </div>
 
-      <div class="single-group">
-        <label for="email_address" class="required">Email Address</label>
-        <input class="input" id="email_address" name="email_address" type="email" required />
-        <small class="error">Please enter a valid email address</small>
+      <div class="form-group">
+        <label for="email_address" class="form_required">Email Address</label>
+        <input class="form-input" id="email_address" name="email_address" type="email" required />
+        <small class="error"></small>
       </div>
 
-      <div class="single-group">
-        <label class="required">Query Type</label>
-        <div class="enquiry">
-          <label class="label-flex radio-option " for="general_enquiry">
+      <div class="form-group">
+        <label class="form_required">Query Type</label>
+        <div class="radio-wrapper">
+          <label class="checkbox-wrapper radio-option " for="general_enquiry">
             <input type="radio" name="query" value="general_query" required id="general_enquiry"/>
             General Enquiry
           </label>
-          <label class="label-flex radio-option" for="support_request">
+          <label class="checkbox-wrapper radio-option" for="support_request">
             <input type="radio" name="query" value="support_request" id="support_request" />
             Support Request
           </label>
         </div>
-        <small class="error">Please select a query type</small>
+        <small class="error"></small>
       </div>
 
-      <div class="single-group">
-        <label for="message" class="required">Message</label>
+      <div class="form-group">
+        <label for="message" class="form_required">Message</label>
         <textarea id="message" name="message" required class="input"></textarea>
-        <small class="error">This field is required</small>
+        <small class="error"></small>
       </div>
 
-      <div class="single-group">
-        <label class="label-flex required" for="consent">
+      <div class="form-group">
+        <label class="checkbox-wrapper form_required" for="consent">
           <input type="checkbox" id="consent" name="consent" required />
           I consent to being contacted by the team
         </label>
-        <small class="error">To submit this form, please consent to being contacted</small>
+        <small class="error"></small>
       </div>
 
       <button type="submit">Submit</button>
@@ -76,6 +77,9 @@
     </div>
   </div>
 
+  <div class="toast">
+    Message Sent!<br>Thanks for completing the form. We'll be in touch soon!
+  </div>
 
 </body>
 

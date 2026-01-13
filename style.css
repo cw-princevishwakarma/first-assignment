@@ -1,155 +1,163 @@
 :root {
-    --accent: #0B7D6A;
-    --error: rgb(255, 67, 67);
+  --accent: #0B7D6A;
+  --error: red;
+  --light-green: #E0F1E7;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
-    font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #E0F1E7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.form-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 500px) {
+  .form-row {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0;
+  }
 }
 
-body>div {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
+.form-row .form-group {
+  flex: 1;
 }
 
-body>div>form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 1rem;
+label {
+  margin-bottom: 0.5rem;
 }
 
-.single-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.form_required::after {
+  content: " *";
+  color: var(--accent);
 }
 
-
-.double-group {
-    display: flex;
-    gap: 1rem;
-}
-
-.double-group>.single-group {
-    flex: 1
-}
-
-.required::after {
-    content: " *";
-    color: #0B7D6A;
-    font-size: 10px;
-}
-
-.enquiry {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.enquiry>label {
-    flex: 1;
-}
-
-.input,
-button {
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.input {
-    border: 0.5px solid grey;
-}
-
-.radio-option {
-    padding: 0.75rem;
-    border: 0.5px solid grey;
-    border-radius: 0.25rem;
-    white-space: nowrap;
-}
-
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    border-radius: 0.25rem;
-}
-
-
-button {
-    background-color: #0B7D6A;
-    border: none;
-    color: white;
+.form-input, 
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #87a3a6;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
 }
 
 textarea {
-    min-height: 80px;
-    padding: 1rem;
-    resize: none;
+  resize: none;
+  min-height: 100px;
 }
 
+.form-input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+.input-error {
+  border-color: var(--error);
+}
 
 .error {
-    display: none;
-    color: var(--error);
-    font-size: 0.8rem;
+  display: none; 
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
 }
 
-form.submitted .single-group:has(:invalid) .error {
-    display: block;
+.radio-wrapper {
+  display: flex;
+  gap: 1rem;
 }
 
-form.submitted :invalid {
-    border-color: var(--error);
+.radio-option {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #87a3a6;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #085d4f;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+
+  background-color: #2b2b2b;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  display: none;
+  text-align: center;
+  z-index: 1000;
 }
 
 .attribution {
-    font-size: 10px;
-}
-
-.label-flex {
-    display: flex;
-    align-items: center;
-    gap: 4px
-}
-
-input[type="checkbox"] {
-    accent-color: #0B7D6A;
-}
-
-input[type="radio"] {
-    accent-color: var(--accent);
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    .double-group {
-        flex-direction: column;
-    }
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: grey;
 }
