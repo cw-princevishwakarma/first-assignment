@@ -24,3 +24,57 @@ export const isValidName = (name) => {
     }
     return true;
 };
+
+export const checkName = (inputElement) => {
+    if (inputElement.value.trim() === "") {
+        showError(inputElement, "This field is required");
+        return false;
+    }
+    if (!isValidName(inputElement.value)) {
+        showError(inputElement, "The name is invalid");
+        return false;
+    }
+    return true;
+}
+
+export const checkEmail = (inputElement) => {
+    if (inputElement.value.trim() === "") {
+        showError(inputElement, "Please enter an email address");
+        return false;
+    }
+    if (!inputElement.validity.valid) {
+        showError(inputElement, "Please enter a valid email address");
+        return false;
+    }
+    return true;
+}
+
+
+export const checkQueryType = () => {
+    const querySelected = document.querySelector('input[name="query"]:checked');
+
+    if (!querySelected) {
+        const firstRadioInGroup = document.querySelector('input[name="query"]');
+        if (firstRadioInGroup) {
+            showError(firstRadioInGroup, "Please select a query type");
+        }
+        return false;
+    }
+    return true;
+}
+
+export const checkMessage = (inputElement) => {
+    if (inputElement.value.trim() === "") {
+        showError(inputElement, "This field is required");
+        return false;
+    }
+    return true;
+}
+
+export const checkConsent = (inputElement) => {
+    if (!inputElement.checked) {
+        showError(inputElement, "To submit this form, please consent to being contacted");
+        return false;
+    }
+    return true;
+}
