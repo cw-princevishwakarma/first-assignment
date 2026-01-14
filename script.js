@@ -5,15 +5,16 @@ const toast = document.querySelector(".toast");
 const allInputs = form.querySelectorAll("input, textarea");
 
 allInputs.forEach(input => {
-  ['input', 'change'].forEach(event => {
-    input.addEventListener(event, () => {
-      if (input.classList.contains("input-error")) {
-        clearError(input);
-      }
-    });
+  const eventType = (input.type === "checkbox" || input.type === "radio")
+    ? 'change'
+    : 'input';
+
+  input.addEventListener(eventType, () => {
+    if (input.classList.contains("input-error")) {
+      clearError(input);
+    }
   });
 });
-
 
 function checkValidity() {
   const isFirstNameValid = checkName(document.getElementById("first_name"));
@@ -23,12 +24,12 @@ function checkValidity() {
   const isMessageValid = checkMessage(document.getElementById("message"));
   const isConsentValid = checkConsent(document.getElementById("consent"));
 
-  return isFirstNameValid && 
-         isLastNameValid && 
-         isEmailValid && 
-         isQueryValid && 
-         isMessageValid && 
-         isConsentValid;
+  return isFirstNameValid &&
+    isLastNameValid &&
+    isEmailValid &&
+    isQueryValid &&
+    isMessageValid &&
+    isConsentValid;
 }
 
 
