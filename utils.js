@@ -26,12 +26,27 @@ export const isValidName = (name) => {
 };
 
 export const checkName = (inputElement) => {
-    if (inputElement.value.trim() === "") {
+    const value = inputElement.value.trim();
+    const min = 2;
+    const max = 50;
+
+    if (value === "") {
         showError(inputElement, "This field is required");
         return false;
     }
-    if (!isValidName(inputElement.value)) {
-        showError(inputElement, "The name is invalid");
+    
+    if (!isValidName(value)) {
+        showError(inputElement, "The name contains invalid characters");
+        return false;
+    }
+
+    if (value.length < min) {
+        showError(inputElement, `Name must be at least ${min} characters`);
+        return false;
+    }
+
+    if (value.length > max) {
+        showError(inputElement, `Name must be fewer than ${max} characters`);
         return false;
     }
     return true;
@@ -49,7 +64,6 @@ export const checkEmail = (inputElement) => {
     return true;
 }
 
-
 export const checkQueryType = () => {
     const querySelected = document.querySelector('input[name="query"]:checked');
 
@@ -64,10 +78,24 @@ export const checkQueryType = () => {
 }
 
 export const checkMessage = (inputElement) => {
-    if (inputElement.value.trim() === "") {
+    const value = inputElement.value.trim();
+    const min = 10;
+    const max = 500;
+
+    if (value === "") {
         showError(inputElement, "This field is required");
         return false;
     }
+
+    if (value.length < min) {
+        showError(inputElement, `Message must be at least ${min} characters`);
+        return false;
+    }
+    if (value.length > max) {
+        showError(inputElement, `Message must be fewer than ${max} characters`);
+        return false;
+    }
+
     return true;
 }
 

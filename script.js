@@ -10,8 +10,19 @@ allInputs.forEach(input => {
     : 'input';
 
   input.addEventListener(eventType, () => {
-    if (input.classList.contains("input-error")) {
-      clearError(input);
+    if (input.type === 'radio') {
+      const formGroup = input.closest('.form-group');
+      const errorInput = formGroup.querySelector('.input-error');
+      if (errorInput) {
+        clearError(errorInput);
+      }
+      formGroup.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
+      input.closest('.radio-option').classList.add('selected');
+    } 
+    else {
+      if (input.classList.contains("input-error")) {
+        clearError(input);
+      }
     }
   });
 });
@@ -43,5 +54,8 @@ form.addEventListener("submit", (e) => {
     }, 3000);
 
     form.reset();
+
+    document.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
+    document.querySelectorAll('.input-error').forEach(el => clearError(el));
   }
 });
